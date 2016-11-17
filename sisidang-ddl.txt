@@ -1,0 +1,59 @@
+create table MAHASISWA(
+	npm char(0) primary key,
+	nama varchar(100) not null,
+	username varchar(30) not null,
+	password varchar(20) not null,
+	email varchar(100) not null,
+	email_alternatif varchar(100),
+	telepon varchar(100),
+	notelp varchar(100)
+);
+
+create table TERM(
+	tahun integer,
+	semester integer,
+	primary key (tahun, semester)
+);
+
+create table PRODI(
+	id integer primary key,
+	namaprodi varchar(50) not null unique
+);
+
+create table DOSEN(
+	nip varchar(20) primary key,
+	nama varchar(100) not null,
+	username varchar(50) not null,
+	password varchar(50) not null,
+	email varchar(100) not null,
+	institusi varchar(100) not null
+);
+
+create table MATA_KULIAH_SPESIAL(
+	idmks integer,
+	npm char(10),
+	tahun integer,
+	semester integer,
+	judul Varchar(250) not null,
+	issiapsidang boolean default FALSE,
+	pengumpulanhardcopy boolean default FALSE,
+	ijinmajusidang boolean default FALSE,
+	idjenismks integer not null,
+	primary key (idmks, npm, Tahun, Semester),
+	foreign key (tahun) references TERM (tahun),
+	foreign key (semester) references TERM (semester),
+	foreign key (idjenismks) references JENISMKS (id),
+);
+
+create table JENISMKS(
+	id integer primary key,
+	namamks varchar(50) not null unique
+);
+
+create table DOSEN_PEMBIMBING(
+	idmks integer,
+	nipdosenpembimbing varchar(20),
+	primary key (idmks, nipdosenpembimbing),
+	foreign key (idmks) references MATA_KULIAH_SPESIAL (idmks),
+	foreign key (nipdosenpembimbing) references DOSEN (nip)
+);
