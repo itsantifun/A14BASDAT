@@ -1,5 +1,5 @@
 create table MAHASISWA(
-	npm char(0) primary key,
+	npm char(10) primary key,
 	nama varchar(100) not null,
 	username varchar(30) not null,
 	password varchar(20) not null,
