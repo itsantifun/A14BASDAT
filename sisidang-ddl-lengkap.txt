@@ -10,8 +10,8 @@ create table MAHASISWA(
 );
 
 create table TERM(
-	tahun integer,
-	semester integer,
+	tahun integer unique,
+	semester integer unique,
 	primary key (tahun, semester)
 );
 
@@ -30,8 +30,8 @@ create table DOSEN(
 );
 
 create table MATA_KULIAH_SPESIAL(
-	idmks integer,
-	npm char(10),
+	idmks integer not null unique references JENISMKS(Id),
+	npm char(10) references mahasiswa(npm),
 	tahun integer,
 	semester integer,
 	judul Varchar(250) not null,
@@ -40,9 +40,7 @@ create table MATA_KULIAH_SPESIAL(
 	ijinmajusidang boolean default FALSE,
 	idjenismks integer not null,
 	primary key (idmks, npm, Tahun, Semester),
-	foreign key (tahun) references TERM (tahun),
-	foreign key (semester) references TERM (semester),
-	foreign key (idjenismks) references JENISMKS (id),
+	foreign key (tahun, semester) references TERM (tahun, semester)
 );
 
 create table JENISMKS(
@@ -51,12 +49,10 @@ create table JENISMKS(
 );
 
 create table DOSEN_PEMBIMBING(
-	idmks integer,
-	nipdosenpembimbing varchar(20),
-	primary key (idmks, nipdosenpembimbing),
-	foreign key (idmks) references MATA_KULIAH_SPESIAL (idmks),
-	foreign key (nipdosenpembimbing) references DOSEN (nip)
-);
+	idmks integer references MATA_KULIAH_SPESIAL (idmks),
+	nipdosenpembimbing varchar(20) references DOSEN (nip),
+	primary key (idmks, nipdosenpembimbing)
+	);
 
 CREATE TABLE SARAN_DOSEN_PENGUJI(
 	IDMKS INT REFERENCES MATA_KULIAH_SPESIAL(IDMKS),
@@ -89,7 +85,7 @@ CREATE TABLE JADWAL_NON_SIDANG(
 
 CREATE TABLE RUANGAN(
 	IdRuangan INT PRIMARY KEY,
-	NamaRuangan VARCHAR(20) NOT NULL, UNIQUE
+	NamaRuangan VARCHAR(20) NOT NULL UNIQUE
 );
 
 CREATE TABLE JADWAL_SIDANG(
