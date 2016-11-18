@@ -12,12 +12,12 @@ INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("7","Promosi");
 INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("8","Tesis"); 
 INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("9","Lain-lain"); 
 
-INSERT INTO JENIS_MKS (Tahun,Semester) VALUES ("1","S1 ilmu komputer"); 
-INSERT INTO JENIS_MKS (Tahun,Semester) VALUES ("2","S1 sistem informasi"); 
-INSERT INTO JENIS_MKS (Tahun,Semester) VALUES ("3","S1 ilmu komputer internasional"); 
-INSERT INTO JENIS_MKS (Tahun,Semester) VALUES ("4","S2 MIK"); 
-INSERT INTO JENIS_MKS (Tahun,Semester) VALUES ("5","S2 MTI"); 
-INSERT INTO JENIS_MKS (Tahun,Semester) VALUES ("6","S3 DIK"); 
+INSERT INTO PRODI (Tahun,Semester) VALUES ("1","S1 ilmu komputer"); 
+INSERT INTO PRODI (Tahun,Semester) VALUES ("2","S1 sistem informasi"); 
+INSERT INTO PRODI (Tahun,Semester) VALUES ("3","S1 ilmu komputer internasional"); 
+INSERT INTO PRODI (Tahun,Semester) VALUES ("4","S2 MIK"); 
+INSERT INTO PRODI (Tahun,Semester) VALUES ("5","S2 MTI"); 
+INSERT INTO PRODI (Tahun,Semester) VALUES ("6","S3 DIK"); 
 
 insert into MATA_KULIAH_SPESIAL (IdMKS, NPM, Tahun, Semester, Judul, IsSiapSidang, PengumpulanHardCopy, IjinMajuSidang, IdJenisMKS) values (1, 1306414201, 2016, 1, 'Analisa Dan Perancangan Sistem Informasi Penggajian Karyawan PT. Indonesia Raya Audivisi', false, false, false, 7);
 insert into MATA_KULIAH_SPESIAL (IdMKS, NPM, Tahun, Semester, Judul, IsSiapSidang, PengumpulanHardCopy, IjinMajuSidang, IdJenisMKS) values (2, 1306414202, 2016, 3, 'Analisa Dan Perancangan Sistem Pengisian Formulir Rencana Studi Secara Online Di Stimik Perbanas', false, false, false, 8);
