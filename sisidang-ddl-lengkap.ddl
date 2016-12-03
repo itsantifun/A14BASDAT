@@ -10,8 +10,8 @@ create table MAHASISWA(
 );
 
 create table TERM(
-	tahun integer unique,
-	semester integer unique,
+	tahun integer,
+	semester integer,
 	primary key (tahun, semester)
 );
 

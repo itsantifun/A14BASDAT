@@ -1,23 +1,23 @@
-INSERT INTO TERM (Tahun,Semester) VALUES ("2016","1"); 
-INSERT INTO TERM (Tahun,Semester) VALUES ("2016","2"); 
-INSERT INTO TERM (Tahun,Semester) VALUES ("2016","3"); 
+INSERT INTO TERM (Tahun,Semester) VALUES (2016,1); 
+INSERT INTO TERM (Tahun,Semester) VALUES (2016,2); 
+INSERT INTO TERM (Tahun,Semester) VALUES (2016,3); 
 
-INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("1","Skripsi"); 
-INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("2","Karya Akhir"); 
-INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("3","Proposal Tesis"); 
-INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("4","Usulan Penelitian"); 
-INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("5","Seminar Hasil Penelitian S3"); 
-INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("6","Pra Promosi"); 
-INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("7","Promosi"); 
-INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("8","Tesis"); 
-INSERT INTO JENISMKS (Id,NamaMKS) VALUES ("9","Lain-lain"); 
+INSERT INTO JENISMKS (Id,NamaMKS) VALUES (1,'Skripsi'); 
+INSERT INTO JENISMKS (Id,NamaMKS) VALUES (2,'Karya Akhir'); 
+INSERT INTO JENISMKS (Id,NamaMKS) VALUES (3,'Proposal Tesis'); 
+INSERT INTO JENISMKS (Id,NamaMKS) VALUES (4,'Usulan Penelitian'); 
+INSERT INTO JENISMKS (Id,NamaMKS) VALUES (5,'Seminar Hasil Penelitian S3'); 
+INSERT INTO JENISMKS (Id,NamaMKS) VALUES (6,'Pra Promosi'); 
+INSERT INTO JENISMKS (Id,NamaMKS) VALUES (7,'Promosi'); 
+INSERT INTO JENISMKS (Id,NamaMKS) VALUES (8,'Tesis'); 
+INSERT INTO JENISMKS (Id,NamaMKS) VALUES (9,'Lain-lain'); 
 
-INSERT INTO PRODI (Tahun,Semester) VALUES ("1","S1 ilmu komputer"); 
-INSERT INTO PRODI (Tahun,Semester) VALUES ("2","S1 sistem informasi"); 
-INSERT INTO PRODI (Tahun,Semester) VALUES ("3","S1 ilmu komputer internasional"); 
-INSERT INTO PRODI (Tahun,Semester) VALUES ("4","S2 MIK"); 
-INSERT INTO PRODI (Tahun,Semester) VALUES ("5","S2 MTI"); 
-INSERT INTO PRODI (Tahun,Semester) VALUES ("6","S3 DIK"); 
+INSERT INTO PRODI (id,namaprodi) VALUES ("1","S1 ilmu komputer"); 
+INSERT INTO PRODI (id,namaprodi) VALUES ("2","S1 sistem informasi"); 
+INSERT INTO PRODI (id,namaprodi) VALUES ("3","S1 ilmu komputer internasional"); 
+INSERT INTO PRODI (id,namaprodi) VALUES ("4","S2 MIK"); 
+INSERT INTO PRODI (id,namaprodi) VALUES ("5","S2 MTI"); 
+INSERT INTO PRODI (id,namaprodi) VALUES ("6","S3 DIK"); 
 
 insert into MATA_KULIAH_SPESIAL (IdMKS, NPM, Tahun, Semester, Judul, IsSiapSidang, PengumpulanHardCopy, IjinMajuSidang, IdJenisMKS) values (1, 1306414201, 2016, 1, 'Analisa Dan Perancangan Sistem Informasi Penggajian Karyawan PT. Indonesia Raya Audivisi', false, false, false, 7);
 insert into MATA_KULIAH_SPESIAL (IdMKS, NPM, Tahun, Semester, Judul, IsSiapSidang, PengumpulanHardCopy, IjinMajuSidang, IdJenisMKS) values (2, 1306414202, 2016, 3, 'Analisa Dan Perancangan Sistem Pengisian Formulir Rencana Studi Secara Online Di Stimik Perbanas', false, false, false, 8);
@@ -120,7 +120,7 @@ insert into DOSEN (NIP, nama, username , password , email, institusi) values ('2
 insert into DOSEN (NIP, nama, username , password , email, institusi) values ('2306414216', 'Rasyid Umrie', 'Rasyid', 'HIzGMQcr', 'Rasyid@ui.ac.id', 'Universitas Indonesia');
 insert into DOSEN (NIP, nama, username , password , email, institusi) values ('2306414217', 'Harun DL', 'Harun', 'nuWg0iIBLfqy', 'Harun@ui.ac.id', 'Universitas Indonesia');
 insert into DOSEN (NIP, nama, username , password , email, institusi) values ('2306414218', 'Syaipan Djambak', 'Syaipan', '9r7TCWgS', 'Syaipan@ui.ac.id', 'Universitas Indonesia');
-insert into DOSEN (NIP, nama, username , password , email, institusi) values ('2306414219', 'Ariyanto Dina', 'Dina', 'pP8mpn4es', 'Dina@ui.ac.id', 'Universitas Indonesia);
+insert into DOSEN (NIP, nama, username , password , email, institusi) values ('2306414219', 'Ariyanto Dina', 'Dina', 'pP8mpn4es', 'Dina@ui.ac.id', 'Universitas Indonesia');
 
 INSERT INTO DOSEN (nipdosen, nama, username, password, email, institusi) VALUES ("0169841348","yycvin","yycvin340","bduxm","h85@tw.com","umikxqls'); 
 INSERT INTO DOSEN (nipdosen, nama, username, password, email, institusi) VALUES ("0014743923","ywcpiv","ywcpiv867","kqdt5","ih@o.com","bdksotvf'); 

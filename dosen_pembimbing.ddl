@@ -1,7 +1,7 @@
-insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (17, 2306414207);
-insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (21, 2306414204);
-insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (27, 2306414201);
-insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (20, 2306414212);
+insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (1, 2306414207);
+insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (2, 2306414204);
+insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (3, 2306414201);
+insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (4, 2306414212);
 insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (5, 2306414221);
 insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (15, 2306414210);
 insert into DOSEN_PEMBIMBING (IDMKS, NIPdosenpembimbing) values (6, 2306414201);
