@@ -97,7 +97,7 @@ body img{
 
     $host = "db.cs.ui.ac.id"; 
     $user = "muhamad.iqbal32"; 
-    $pass = "fabioborini29"; 
+    $pass = ""; 
     $db = "sisidang"; 
 
     $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
@@ -112,10 +112,12 @@ body img{
 
       echo '<tr>
               <td>'.$row[0].'</td>
-              <td>'.$row[1].'</td>
-              <td>'.$row[2].'</td>
-              <td>'.$row[3].'</td>
-              <td>'.$row[4].'</td>
+              <td>'.$row[4].'</td>';
+      $quernama = 'SELECT nama FROM MAHASISWA WHERE NPM = "'.$row[1].'"';
+      $nama = pg_query($con, $query) or die("Cannot execute query: $query\n");
+      
+              '<td>'.$row[2].' '.$row[3].'</td>
+              <td>'.$row[8].'</td>
               <td>'.$row[5].'</td>
             </tr>';
     }
