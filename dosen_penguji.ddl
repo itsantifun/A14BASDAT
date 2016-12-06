@@ -1,9 +1,9 @@
-insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (14, 2306414215);
-insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (27, 2306414210);
-insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (1, 2306414211);
-insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (26, 2306414218);
-insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (22, 2306414206);
-insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (11, 2306414217);
+insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (1, 2306414215);
+insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (2, 2306414210);
+insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (3, 2306414211);
+insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (4, 2306414218);
+insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (5, 2306414206);
+insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (1, 2306414217);
 insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (13, 2306414212);
 insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (11, 2306414210);
 insert into DOSEN_PENGUJI (IDMKS, NIPdosenpenguji) values (22, 2306414214);

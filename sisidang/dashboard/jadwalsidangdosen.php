@@ -1,3 +1,18 @@
+<?php
+	session_start();
+	require "../database.php";
+	include 'common_function.php';
+	if(!isset($_SESSION['username'])){
+			header('Location: ../index.php');
+			die();
+	}
+	$username = $_SESSION['username'];
+	$role = $_SESSION["role"];
+	$nama = $_SESSION["nama"];
+	$conn = connectDB();
+	
+	
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +22,21 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+  
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 <style>
+body {
+	background: #f1f4f7;
+	padding-top: 50px;
+	color: #5f6468;
+	font-family: Lato, sans-serif;
+	}
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -61,7 +85,7 @@ body img{
 </style>
 </head>
 <body>
-<p>
+
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -74,34 +98,89 @@ body img{
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li data-toggle="modal" data-target="#myModal"><a href="#">Selamat datang, Alvan</a></li>
+        <li data-toggle="modal" data-target="#myModal"><a href="../logout.php">Logout</a></li>
       </ul>
     </div>
   </div>
+  </div>
 </nav>
-</p>
-<p>a</p>
-<p>-</p>
+
+<div class="col-md-10 col-md-offset-1">
 <h2>Jadwal Sidang</h2>
 <p>Sort By : [Mahasiswa], [Jenis Sidang], [Waktu]</p>
-<table>
+<table data-order[[0,1,3]] id="datamahasiswa" class="display">
+  <thead>
   <tr>
     <th>Mahasiswa</th>
     <th>jenis Sidang</th>
     <th>Judul</th>
 	<th>Waktu dan Lokasi</th>
-	<th>Pembimbing Lain</th>
+	<th>Pembimbing</th>
 	<th>status</th>
+	
   </tr>
+  </thead>
+  <tbody>
+  <?php
+			$namae = "SELECT * FROM DOSEN WHERE username = '$username'";
+			$result0 = pg_query($conn, $namae);
+			$row0 = pg_fetch_array($result0);
+			$namaea = $row0['nama'];
+			//echo $namaea;
+			$sql = "SELECT * FROM JADWAL_SIDANG";
+			$result = pg_query($conn, $sql);
+				while($row = pg_fetch_array($result)){
+					$mks=getMKS($row['idmks']);
+					$jenisMks = getJenisMKS($mks['idjenismks']);
+					$mahasiswa = getMahasiswa($mks['npm']);
+					$pembimbing = getDosenPembimbing2($mks['idmks'],$namaea);
+					$penguji = getDosenPenguji2($mks['idmks'],$namaea);
+					$waktu = getWaktu($mks['idmks']);
+					$judul = $mks['judul'];
+					$status = "";
+					if ($mks['pengumpulanhardcopy'] == 't')
+					$status = $status."-"."pengumpulanhardcopy"."<br>";
+					if ($mks['ijinmajusidang'] == 't')
+					$status = $status."-"."ijinmajusidang";
+					
+					if ($pembimbing == $namaea){
+						$penguji = getDosenPenguji($mks['idmks']);
+						$pembimbing = getDosenPembimbing($mks['idmks']);
+	?>
   <tr>
-    <td>Andi</td>
-    <td>Skripsi sebagai pembimbing</td>
-	<td>Green ICT</td>
-	<td>17 Nov 2016 09:00-10:30 2.2301</td>
-	<td>ani</td>
-	<td>izin masuk sidang</td>
+	<td><?=$mahasiswa?></td>
+    <td><?=$jenisMks?></td>
+	<td><?=$judul?></td>
+	<td><?=$waktu['tanggal']," ",$waktu['jammulai'],"-",$waktu['jamselesai']?></td>
+	<td><?=$pembimbing?></td>
+	<td><?=$status?></td>
+	
   </tr>
+					<?php }
+	if ($penguji == $namaea){
+						$penguji = getDosenPenguji($mks['idmks']);
+						$pembimbing = getDosenPembimbing($mks['idmks']);
+	?>
+	<tr>
+	<td><?=$mahasiswa?></td>
+    <td><?=$jenisMks?></td>
+	<td><?=$judul?></td>
+	<td><?=$waktu['tanggal']," ",$waktu['jammulai'],"-",$waktu['jamselesai']?></td>
+	<td><?=$pembimbing?></td>
+	<td><?=$penguji?></td>
+	
+  </tr>
+				<?php } }
+	?>
+</tbody>
+<script>
+$(document).ready( function () {
+    $('#datamahasiswa').DataTable();
+} );
+</script>
 </table>
+
+</div>
 
 </body>
 </html>

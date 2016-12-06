@@ -1,3 +1,20 @@
+<?php
+	session_start();
+	require "../database.php";
+	include 'common_function.php';
+	if(!isset($_SESSION['username'])){
+			header('Location: ../index.php');
+			die();
+	}
+	$username = $_SESSION['username'];
+	$role = $_SESSION["role"];
+	if($role <> "MHS"){
+			header('Location: ../index.php');
+			die();
+	}
+	$nama = $_SESSION["nama"];
+	$conn = connectDB();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,14 +36,18 @@ table {
     width: 100%;
 }
 
-td, th {
+td{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even) {
+th{
+	border: 1px solid #eeeeee;
+    text-align: left;
+    padding: 8px;
     background-color: #dddddd;
+	width: 220px;
 }
 body img{
       width: 100%; /* Set width to 100% */
@@ -61,7 +82,6 @@ body img{
 </style>
 </head>
 <body>
-<p>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -74,46 +94,60 @@ body img{
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li data-toggle="modal" data-target="#myModal"><a href="#">Selamat datang, Alvan</a></li>
+        <li data-toggle="modal" data-target="#myModal"><a href="../logout.php">logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
-</p>
-<p>a</p>
-<p>-</p>
-<h2>Jadwal Sidang</h2>
-<p><input class="btn btn-danger" type="submit" name="commit" value="tambah"></p>
-<p>Sort By : [Mahasiswa], [Jenis Sidang], [Waktu]</p>
-<table>
-  <tr>
-    <th>Mahasiswa</th>
-    <th>jenis Sidang</th>
-    <th>Judul</th>
-	<th>Waktu dan Lokasi</th>
-	<th>Dosen Pembimbing</th>
-	<th>Doseng Penguji</th>
-	<th>action</th>
-  </tr>
-  <tr>
-    <td>Andi</td>
-    <td>Skripsi</td>
-	<td>Green ICT</td>
-	<td>17 Nov 2016 09:00-10:30 2.2301</td>
-	<td>ani</td>
-	<td>anto</td>
-	<td>edit</td>
-  </tr>
-  <tr>
-    <td>budi</td>
-    <td>Skripsi</td>
-	<td>Green ICT</td>
-	<td>17 Nov 2016 09:00-10:30 2.2302</td>
-	<td>bayu</td>
-	<td>cecep</td>
-	<td>edit</td>
-  </tr>
-</table>
 
+<div class="col-md-10 col-md-offset-1" style="margin-top:5%">
+<table>
+	<?php
+			$status = true;
+			$namae = "SELECT * FROM MAHASISWA WHERE username = '$username'";
+			$result0 = pg_query($conn, $namae);
+			$row0 = pg_fetch_array($result0);
+			$namaea = $row0['npm'];
+			//echo $namaea;
+			$sql = "SELECT * FROM JADWAL_SIDANG";
+			$result = pg_query($conn, $sql);
+				while($row = pg_fetch_array($result)){
+					$mks=getMKS($row['idmks']);	
+					$mahasiswa = getMahasiswa($mks['npm']);
+					$jenisMks = getJenisMKS($mks['idjenismks']);
+					$pembimbing = getDosenPembimbing($mks['idmks']);
+					$penguji = getDosenPenguji($mks['idmks']);
+					$waktu = getWaktu($mks['idmks']);
+					$judul = $mks['judul'];
+				if($namaea == $mks['npm'] && $mks['issiapsidang'] == "t"){
+					$status = false;
+	?>
+	<h2>Jadwal Sidang Mahasiswa</h2>
+  <tr>
+    <th>Judul Tugas Akhir</th>
+    <td><?=$judul?></td>
+  </tr>
+  <tr>
+    <th>Jadwal Sidang</th>
+    <td>19 Nov 2016</td>
+  </tr>
+  <tr>
+    <th>Waktu Sidang</th>
+    <td>09:00-10:30 WIB @ 2.2301</td>
+  </tr>
+  <tr>
+    <th>Dosen Pembimbing</th>
+    <td>ani, Status : izin maju sidang, Kumpul Hard Copy</td>
+  </tr>
+  <tr>
+    <th>Dosen Penguji</th>
+    <td>anto</td>
+  </tr>
+				<?php } }
+	if($status)	echo "belum ada jadwal";				
+  ?>
+  
+</table>
+</div>
 </body>
 </html>

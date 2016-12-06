@@ -1,5 +1,18 @@
 <?php
-
+	session_start();
+	require "../database.php";
+	include 'common_function.php';
+	if(!isset($_SESSION['username'])){
+			header('Location: ../index.php');
+			die();
+	}
+	$username = $_SESSION['username'];
+	$role = $_SESSION["role"];
+	$nama = $_SESSION["nama"];
+	$conn = connectDB();
+	
+ 
+	
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -14,13 +27,15 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="calendar.css">
+  <link rel="stylesheet" type="text/css" href="../style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-  
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <style>
+	background-color:blue;
     body img{
       width: 100%; /* Set width to 100% */
       height: 100%;
@@ -55,7 +70,7 @@
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
-<body style="background-image: url('https://img.okezone.com/content/2011/07/15/373/480422/2H1pGCGuwx.jpg');">
+<body>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -72,7 +87,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="./"><alt="Logo" width="150px" height="50px" class="navbar-brand">Lihat Jadwal Sidang</a>
+      <a href="jadwalsidangdosen.php"><alt="Logo" width="150px" height="50px" class="navbar-brand">Lihat Jadwal Sidang</a>
     </div>
 	<div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -97,7 +112,13 @@
     </div>
   </div>
 </nav>
-
+	<div style="margin-top:5%">
+	<?php
+  $find = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+    include("calendar.php");
+	
+?>
+</div>
 
 
 </script>

@@ -1,4 +1,4 @@
-INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES ("1","1","Asep","Jl. Dewan Karang Nongko"); 
+INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (1,1,'Asep','Jl. Dewan Karang Nongko'); 
 INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES ("2","2","Budi","Jl. A. Yani"); 
 INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES ("3","3","Charli","Jl. A. Zakir"); 
 INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES ("4","4","Dena hnevdpcodpmr","Jl. Abimanyu"); 

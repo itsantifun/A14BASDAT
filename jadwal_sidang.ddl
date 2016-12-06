@@ -1,8 +1,8 @@
-INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES ("1","1","20-09-2016","02:44","23:28","114"); 
-INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES ("2","2","24-02-2016","01:38","06:55","103"); 
+INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES (1,1,'20-09-2016','02:44','23:28','120'); 
+INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES (11,9,'24-12-2016','01:38','06:55','121'); 
 INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES ("3","3","07-07-2016","12:28","12:33","115"); 
 INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES ("4","4","24-05-2016","14:50","24:08","117"); 
-INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES ("5","5","05-11-2016","11:35","23:19","100"); 
+INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES (5,5,'05-11-2016','11:35','23:19','120'); 
 INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES ("6","6","07-03-2016","02:47","03:22","113"); 
 INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES ("7","7","02-10-2016","19:36","24:25","102"); 
 INSERT INTO JADWAL_SIDANG (idjadwal, idmks, tanggal, jammulai, jamselesai,idruangan) VALUES ("8","8","20-09-2016","13:29","21:59","114"); 

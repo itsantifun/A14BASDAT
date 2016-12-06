@@ -2,17 +2,18 @@
 	session_start();
 	
 	// Setup db connection
-	//include "database.php";
+	include "database.php";
 	
 	// Simpan session ketika login valid
-	$resp = "";
+	//$resp = "";
 	if(isset($_POST["username"])){
+		$resp = '';
 		if(login($_POST["username"], $_POST["password"])){
 			$resp = "login success";	
 			$_SESSION["userlogin"] = $_POST["username"];
 		} else {
 			$resp = "invalid login";
-			header("Location: index.php");
+			//header("Location: index.php");
 		}
 	}
 	
@@ -33,8 +34,8 @@
 		}
 
 
-		//$conn = connectDB();
-		include "database.php";
+		$conn = connectDB();
+		//include "database.php";
 		//   query the database to return username and password existence
 		$sqlMhs = "SELECT username, password, nama FROM MAHASISWA WHERE username='$user' and password='$pass'";
 		$sqlDosen = "SELECT username, password FROM DOSEN WHERE username='$user' and password='$pass'";
@@ -119,7 +120,7 @@
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
-<body style="background-image: url('https://img.okezone.com/content/2011/07/15/373/480422/2H1pGCGuwx.jpg');">
+<body style="background-image: url('bgr1.jpg');">
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -147,14 +148,25 @@
           
           <h1>Login</h1>
           <div class="form-bottom">
-            <form id='#defaultForm' method="post" action="index.php">
+            <form id='defaultForm' method="post" action="index.php">
               <div class="form-group">
                 <p><input type="text" name="username" class="form-control input" value="" size="50" placeholder="Username"></p>
                 <p><input type="password" name="password" class="form-control input" value="" size="50" placeholder="password"></p>
               </div>
-              <p>
+        
+				<p>
+				<?php
+				 if(isset($resp)){
+				//	 if($resp == "invalid login" ){
+						echo $resp;
+				//		echo 'adasdas';
+					 //}
+				 }
+				?>
+
 
               </p>
+         
               <p><input class="btn btn-danger" type="submit" name="commit" value="login"></p>
             </form>
           </div>
@@ -162,6 +174,6 @@
     </div>
   </div>
 </div>
-</script>
+  
 </body>
 </html>

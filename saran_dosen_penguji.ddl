@@ -1,8 +1,8 @@
-insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (14, 2306414203);
-insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (16, 2306414202);
-insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (27, 2306414200);
-insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (30, 2306414215);
-insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (14, 2306414216);
+insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (1, 2306414203);
+insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (2, 2306414202);
+insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (3, 2306414200);
+insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (4, 2306414215);
+insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (5, 2306414216);
 insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (2, 2306414213);
 insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (16, 2306414225);
 insert into SARAN_DOSEN_PENGUJI (IDMKS, NIPsaranpenguji) values (30, 2306414210);

@@ -19,8 +19,8 @@ INSERT RUANGAN (idruangan, namaruangan) VALUES ("117","fNFza");
 INSERT RUANGAN (idruangan, namaruangan) VALUES ("118","sp6oM"); 
 INSERT RUANGAN (idruangan, namaruangan) VALUES ("119","8RylP");
 
-INSERT RUANGAN (idruangan, namaruangan) VALUES ("120","2301"); 
-INSERT RUANGAN (idruangan, namaruangan) VALUES ("121","2302"); 
+INSERT into RUANGAN (idruangan, namaruangan) VALUES (120,'2301'); 
+INSERT into RUANGAN (idruangan, namaruangan) VALUES (121,'2302'); 
 INSERT RUANGAN (idruangan, namaruangan) VALUES ("122","2303"); 
 INSERT RUANGAN (idruangan, namaruangan) VALUES ("123","2304"); 
 INSERT RUANGAN (idruangan, namaruangan) VALUES ("124","2305"); 

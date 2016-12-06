@@ -1,5 +1,5 @@
 <?php
-
+function connectDB(){
 	$conn_string = "host=localhost port=5432 dbname=sisidang user=postgres password=flashbang";
 	$conn = pg_connect($conn_string);
 	
@@ -18,5 +18,5 @@
 	} 
 	
 	return $conn;
-
+}
 ?>

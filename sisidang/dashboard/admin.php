@@ -1,5 +1,21 @@
 <?php
-
+	session_start();
+	require "../database.php";
+	include 'common_function.php';
+	if(!isset($_SESSION['username'])){
+			header('Location: ../index.php');
+			die();
+	}
+	$username = $_SESSION['username'];
+	$role = $_SESSION["role"];
+	if($role <> "ADMIN"){
+			header('Location: ../index.php');
+			die();
+	}
+	$nama = $_SESSION["nama"];
+	$conn = connectDB();
+	
+	
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -14,22 +30,20 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="../style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
   
   <style>
-    body img{
-      width: 100%; /* Set width to 100% */
-      height: 100%;
-      margin: auto;
-    }
-    .row{
-        padding-top: 10%; 
-        padding-left: 10%;
-    }
+ 
+	body {
+	background: #f1f4f7;
+	padding-top: 50px;
+	color: #5f6468;
+	font-family: Lato, sans-serif;
+	}
     .form-top {
         width: 500px;
         overflow: hidden;
@@ -55,7 +69,7 @@
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
-<body style="background-image: url('https://img.okezone.com/content/2011/07/15/373/480422/2H1pGCGuwx.jpg');">
+<body>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
@@ -72,7 +86,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="./"><alt="Logo" width="150px" height="50px" class="navbar-brand">Lihat Jadwal Sidang</a>
+      <a href="jadwalsidang.php"><alt="Logo" width="150px" height="50px" class="navbar-brand">Lihat Jadwal Sidang</a>
     </div>
 	<div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -103,11 +117,49 @@
         <li data-toggle="modal" data-target="#myModal"><a href="../logout.php">Logout</a></li>
       </ul>
     </div>
+	</div>
   </div>
+  
 </nav>
+<div class="row">
 
+	<div class="col-md-10 col-md-offset-1">
+		<table class="table" style="margin-top:5%">
+			<tr>
+				<th>Jenis Sidang</th>
+				<th>Mahasiswa</th>
+				<th>Dosen Pembimbing</th>
+				<th>Dosen Penguji</th>	
+				<th>Waktu dan Lokasi</th>
+				<th>Action</th>
+			</tr>
+			<?php
+			$sql = "SELECT * FROM JADWAL_SIDANG";
+			$result = pg_query($conn, $sql);
+				while($row = pg_fetch_array($result)){
+					$mks=getMKS($row['idmks']);
+					$jenisMks = getJenisMKS($mks['idjenismks']);
+					$mahasiswa = getMahasiswa($mks['npm']);
+					$pembimbing = getDosenPembimbing($mks['idmks']);
+					$penguji = getDosenPenguji($mks['idmks']);
+					$waktu = getWaktu($mks['idmks']);
+			?>
+			<tr>
+			
+				<td><?=$jenisMks?></td>
+				<td><?=$mahasiswa?></td>
+				<td><?=$pembimbing?></td>
+				<td><?=$penguji?></td>
+				<td><?=$waktu['tanggal']," ",$waktu['jammulai'],"-",$waktu['jamselesai']?></td>
+				<td><a href=/>edit</a></td>
+			</tr>
+			
+				<?php }
+				?>
+			</table>
+	</div>
+	
+</div>
 
-
-</script>
 </body>
 </html>

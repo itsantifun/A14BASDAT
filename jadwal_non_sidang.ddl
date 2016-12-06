@@ -1,5 +1,5 @@
-INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("1","25-05-2016","13-12-2016","eunsnkakgwcsvpubhsab","","2306414201"); 
-INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("2","01-05-2016","12-11-2016","dhvycypssdkbnmfyjozm","","2306414201"); 
+INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES (1,"25-05-2016","13-12-2016","eunsnkakgwcsvpubhsab","","2306414201"); 
+INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES (2,"01-05-2016","12-11-2016","dhvycypssdkbnmfyjozm","","2306414201"); 
 INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("3","18-09-2016","03-12-2016","iazykkqegsszcwevrfpa","harian","2306414201"); 
 INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("4","20-05-2016","03-07-2016","nbwlhjnpeqxtusebwqtk","","2306414201"); 
 INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("5","23-05-2016","18-07-2016","jglwhuvfpudvjwrjfoac","","2306414201"); 
@@ -49,7 +49,7 @@ INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, r
 INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("49","19-01-2016","19-12-2016","quadxpxavtymvprohbfk","mingguan","2306414201"); 
 INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("50","04-06-2016","29-11-2016","oatctiwbauaxdeibrpsc","harian","2306414201");
 
-INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("51","08-03-2016","27-07-2016","sakit","mingguan","2306414201"); 
+INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES (51,'08-03-2016','27-07-2016','sakit','mingguan','2306414201'); 
 INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("52","15-05-2016","28-06-2016","izin","mingguan","2306414203"); 
 INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("53","27-01-2016","03-10-2016","alpha","harian","2306414205"); 
 INSERT INTO JADWAL_NON_SIDANG (idJadwal, Tanggalmulai, Tanggalselesai, Alasan, repetisi, nipdosen) VALUES ("54","15-01-2016","11-03-2016","sakit","harian","2306414207"); 
