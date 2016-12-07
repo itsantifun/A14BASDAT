@@ -48,9 +48,9 @@ INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (47,1,'Ulum','Jl. Dagen')
 INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (48,8,'Vas','Jl. Damai'); 
 INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (49,9,'Winda','Jl. Dara Dasih'); 
 INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (50,24,'Agus','Jl. Depokan'); 
-INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (51,10046'qrcoetxiaqvetklwb fbrdzgzqo rcploibsg tg','ngghiynfqv'); 
-INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (52,10041'qzdx oz uufnnwanbcvxhdjxl yjffb holczbjt','uyqoontlsh'); 
-INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (53,10036'ogtq fdnmkfenwqyfoacdwyvvxdlgpzhlpzbczyl','wsifjdqabm'); 
+INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (51,10046,'qrcoetxiaqvetklwb fbrdzgzqo rcploibsg tg','ngghiynfqv'); 
+INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (52,10041,'qzdx oz uufnnwanbcvxhdjxl yjffb holczbjt','uyqoontlsh'); 
+INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (53,10036,'ogtq fdnmkfenwqyfoacdwyvvxdlgpzhlpzbczyl','wsifjdqabm'); 
 INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (54,10041,'ulmwatotlggoawyrvouqvgrkjhynfo whyjkdmqk','veoiiktkrf'); 
 INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (55,10028,'tnnttizmlkuduexaowdyqaqjgmixihrdjdwvqhqc','dqaqekzrub'); 
 INSERT INTO BERKAS (idberkas,idmks,nama,alamat) VALUES (56,10031,'nuocybpbjskymavzvsiwpjduboynyunasgrqf ji','gfkyluckgm'); 
