@@ -1,3 +1,33 @@
+<?php
+  session_start();
+  require_once "../database.php";
+  require_once "common_function.php";
+  $username = $_SESSION['username'];
+  $role = $_SESSION["role"];
+  $nama = $_SESSION["nama"];
+  
+  if($_POST){
+    $judulmks = $_POST['judulmks'];
+    $term = $_POST['term'];
+    $jenismks = $_POST['jenismks'];
+    $namamhs = $_POST['namamhs'];
+    $id_mks = 1999;
+    $npm= (getNPM($username));
+
+    $conn = connectDB();
+     $sql = "INSERT INTO mata_kuliah_spesial (IdMKS, NPM, Tahun, Semester, Judul, IsSiapSidang, PengumpulanHardCopy, IjinMajuSidang, IdJenisMKS) VALUES ($id_mks,$npm,$term,false,false,false,$jenismks)";
+     $result = pg_query($conn, $sql);
+  }
+  
+  if(!empty($_GET)){
+  }else{
+    die();
+  }
+
+  $id_st_lamaran = 1;//status melamar
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +102,7 @@ body img{
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li data-toggle="modal" data-target="#myModal"><a href="#">Selamat datang, admin</a></li>
+        <li data-toggle="modal" data-target="#myModal"><a href="#">Selamat datang</a></li>
       </ul>
     </div>
   </div>
@@ -81,11 +111,12 @@ body img{
 <p>a</p>
 <p>-</p>
 <h2>Tambah Data Sidang</h2>
+<form method="POST" action="tambahmks.php">
 <table>
  <tr>
     <td>Term</td>
     <td>
-        <select name="priority" size="1">
+        <select id= "term" name="priority" size="1">
         <option value="Low">Ganjil 2016</option>
         <option value="Normal">Genap 2016</option>
         <option value="High">SP 2016</option>
@@ -95,22 +126,22 @@ body img{
   <tr>
     <td>Jenis MKS</td>
     <td>
-      <select name="priority" size="1">
-        <option value="Low">Skripsi</option>
-        <option value="Normal">Karya Akhir</option>
-        <option value="High">Proposal Tesis</option>
-        <option value="High">Usulan Penelitian</option>
-        <option value="High">Seminar Hasil Penelitian S3</option>
-        <option value="High">Pra Promosi</option>
-        <option value="High">Promosi</option>
-        <option value="High">Tesis</option>
-        <option value="High">Lain-lain</option>
+      <select id = "jenismks" name="priority" size="1">
+        <option value="1">Skripsi</option>
+        <option value="2">Karya Akhir</option>
+        <option value="3">Proposal Tesis</option>
+        <option value="4">Usulan Penelitian</option>
+        <option value="5">Seminar Hasil Penelitian S3</option>
+        <option value="6">Pra Promosi</option>
+        <option value="7">Promosi</option>
+        <option value="8">Tesis</option>
+        <option value="9">Lain-lain</option>
     </td>
   </tr>
   <tr>
     <td>Mahasiswa</td>
     <td>
-      <select name="priority" size="1">
+      <select id="namamhs" name="priority" size="1">
         <option value="Low">Andi</option>
         <option value="Normal"></option>
         <option value="High"></option>
@@ -120,7 +151,7 @@ body img{
   <tr>
     <td>Judul MKS</td>
     <td>
-      <input type="text" name="name">
+      <input id="judulmks" type="text" name="name">
     </td>
   </tr>
   <tr>
@@ -150,7 +181,7 @@ body img{
   <tr>
     <td>Penguji 1</td>
     <td>
-      <select name="priority" size="1">
+      <select id="penguji" name="priority" size="1">
         <option value="Low">Alief</option>
         <option value="Normal"></option>
         <option value="High"></option>
@@ -165,12 +196,13 @@ body img{
   </tr>
   <tr>
     <td>
-      <button type="submit" value="Send" style="margin-top:15px;">Simpan</button>
+      <button type="submit" value="Simpan" style="margin-top:15px;">Simpan</button>
     </td>
     <td>
-      <button type="submit" value="Send" style="margin-top:15px;">Batal</button>
+      <button type="submit" value="batal" style="margin-top:15px;">Batal</button>
     </td>
   </tr>
+  </form>
 </table>
 
 </body>

@@ -12,7 +12,8 @@ create table MAHASISWA(
 create table TERM(
 	tahun integer,
 	semester integer,
-	primary key (tahun, semester)
+	primary key (tahun, semester),
+	unique (tahun, semester)
 );
 
 create table PRODI(
@@ -30,7 +31,7 @@ create table DOSEN(
 );
 
 create table MATA_KULIAH_SPESIAL(
-	idmks integer not null unique references JENISMKS(Id),
+	idmks serial not null unique,
 	npm char(10) references mahasiswa(npm),
 	tahun integer,
 	semester integer,
@@ -70,8 +71,9 @@ CREATE TABLE TIMELINE(
 	IdTimeline INT PRIMARY KEY,
 	NamaEvent VARCHAR(100) NOT NULL,
 	Tanggal DATE NOT NULL ,
-	Tahun INT NOT NULL REFERENCES TERM(Tahun),
-	Semester INT NOT NULL REFERENCES TERM(Semester)
+	Tahun INT NOT NULL,
+	Semester INT NOT NULL,
+	foreign key (tahun, semester) references TERM (tahun, semester)
 );
 
 CREATE TABLE JADWAL_NON_SIDANG(

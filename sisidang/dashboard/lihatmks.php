@@ -1,3 +1,25 @@
+<?php
+  session_start();
+  include "../navbar.php";
+  require_once "../database.php";
+  require_once "common_function.php";
+
+  $username = $_SESSION['username'];
+  $role = $_SESSION["role"];
+  $nama = $_SESSION["nama"];
+
+  if(!empty($_GET)) {
+    $conn = connectDB();
+    $sql = $query = "SELECT * FROM mata_kuliah_spesial"; 
+    $result = pg_query($conn, $sql);
+
+  } else {
+    die();
+  }
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,7 +94,7 @@ body img{
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li data-toggle="modal" data-target="#myModal"><a href="#">Selamat datang, admin</a></li>
+        <li data-toggle="modal" data-target="#myModal"><a href="#">Selamat datang</a></li>
       </ul>
     </div>
   </div>
@@ -81,7 +103,7 @@ body img{
 <p>a</p>
 <p>-</p>
 <p></p>
-<h2>Daftar MK Spesial</h2>
+<h2>Daftar MK Spesial <?echo $role . ': ' .$nama; ?> </h2>
 <p><input class="btn btn-danger" type="submit" name="commit" value="tambah"></p>
 <p>Sort By : [Mahasiswa], [Jenis Sidang], [Waktu]</p>
 <table>
@@ -93,53 +115,26 @@ body img{
     <td>Jenis MKS</td>
     <td>Status</td>
   </tr>
-  <?php 
-
-    $host = "db.cs.ui.ac.id"; 
-    $user = "muhamad.iqbal32"; 
-    $pass = ""; 
-    $db = "sisidang"; 
-
-    $con = pg_connect("host=$host dbname=$db user=$user password=$pass")
-        or die ("Could not connect to server\n"); 
-
-    $query = "SELECT * FROM mata_kuliah_spesial"; 
-
-    $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
-
-    while ($row = pg_fetch_row($rs)) {
-     // echo "$row[0] $row[1] $row[2]\n";
-
-      echo '<tr>
-              <td>'.$row[0].'</td>
-              <td>'.$row[4].'</td>';
-      $quernama = 'SELECT nama FROM MAHASISWA WHERE NPM = "'.$row[1].'"';
-      $nama = pg_query($con, $query) or die("Cannot execute query: $query\n");
-      
-              '<td>'.$row[2].' '.$row[3].'</td>
-              <td>'.$row[8].'</td>
-              <td>'.$row[5].'</td>
-            </tr>';
-    }
-
-    pg_close($con); 
-
-  ?>
   <tr>
-    <td>1</td>
-    <td>Green ICT</td>
-    <td>Andi</td>
-    <td>Gasal 1</td>
-    <td>Skripsi</td>
-    <td>izin Maju</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Analisa Algoritma</td>
-    <td>Budi</td>
-    <td>Genap 1</td>
-    <td>Skripsi</td>
-    <td>Kumpul Hard Copy</td>
+    <?php
+      while($result) {
+        $field = pg_fetch_array($result);
+        $IdMKS = $field[0];
+        $NPM = $field[1];
+        $Tahun = $field[2];
+        $Semester = $field[3];
+        $Judul = $field[4];
+        $IsSiapSidang = $field[5];
+        $PengumpulanHardCopy = $field[6];
+        $IjinMajuSidang = $field[7];
+        $IdJenisMKS = $field[8];
+      }?>
+      <td><?echo  $IdMKS; ?></td>
+        <td><?echo $Judul; ?></td>
+        <td><?echo $NPM; ?></td>
+        <td><?echo $Tahun . ' ' . $Semester; ?></td>
+        <td><?echo $IdJenisMKS ?></td>
+        <td><?echo $IsSiapSidang ?><?echo $PengumpulanHardCopy ?><?echo $IjinMajuSidang ?></td>
   </tr>
 </table>
 
