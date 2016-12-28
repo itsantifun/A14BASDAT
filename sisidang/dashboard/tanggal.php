@@ -27,7 +27,7 @@
         <div class="modal-body">
          <table class="table">
 			<h3>
-			PENGUJIAN
+			BIMBINGAN
 			<h3>
 			<tr>
 				<th>Jenis Sidang</th>
